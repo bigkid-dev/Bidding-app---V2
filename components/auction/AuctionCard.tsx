@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import { Clock, Users, TrendingUp, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";

@@ -70,7 +70,7 @@ Original box, all accessories included. Nigeria warranty applicable.`,
 };
 
 const AuctionDetail = () => {
-  const { id } = useSearchParams();
+  // const { id } = useSearchParams();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [bidAmount, setBidAmount] = useState(
     auctionData.currentBid + auctionData.minBidIncrement

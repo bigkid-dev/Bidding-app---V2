@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,9 @@ const HeroSection = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary border border-primary/30">
               <Zap className="h-4 w-4" />
-              <span className="text-sm font-medium">Nigeria's #1 Auction Platform</span>
+              <span className="text-sm font-medium">
+                Nigeria's #1 Auction Platform
+              </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -28,7 +30,9 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg text-background/70 max-w-lg">
-              Join thousands of Nigerians buying and selling through our secure escrow-protected auction platform. Real-time bidding, verified sellers, guaranteed transactions.
+              Join thousands of Nigerians buying and selling through our secure
+              escrow-protected auction platform. Real-time bidding, verified
+              sellers, guaranteed transactions.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -78,23 +82,29 @@ const HeroSection = () => {
                     <span className="h-3 w-3 rounded-full bg-destructive animate-pulse" />
                     <span className="text-sm font-medium">Live Now</span>
                   </div>
-                  <span className="text-sm text-background/60">Ends in 02:45:30</span>
+                  <span className="text-sm text-background/60">
+                    Ends in 02:45:30
+                  </span>
                 </div>
 
                 <div className="aspect-video rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600" 
+                  <img
+                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"
                     alt="Featured Auction"
                     className="w-full h-full object-cover"
                   />
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Apple Watch Series 9 - Brand New</h3>
+                  <h3 className="font-semibold text-lg mb-2">
+                    Apple Watch Series 9 - Brand New
+                  </h3>
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-xs text-background/60">Current Bid</p>
-                      <p className="text-2xl font-bold text-primary">₦285,000</p>
+                      <p className="text-2xl font-bold text-primary">
+                        ₦285,000
+                      </p>
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-background/60">Bids</p>
@@ -110,12 +120,18 @@ const HeroSection = () => {
             </div>
 
             {/* Floating Stats */}
-            <div className="absolute -left-8 top-1/4 bg-card text-card-foreground rounded-2xl p-4 shadow-lg animate-slide-up" style={{ animationDelay: "0.2s" }}>
+            <div
+              className="absolute -left-8 top-1/4 bg-card text-card-foreground rounded-2xl p-4 shadow-lg animate-slide-up"
+              style={{ animationDelay: "0.2s" }}
+            >
               <p className="text-2xl font-bold text-primary">₦2.5B+</p>
               <p className="text-sm text-muted-foreground">Total Sales</p>
             </div>
 
-            <div className="absolute -right-4 bottom-1/4 bg-card text-card-foreground rounded-2xl p-4 shadow-lg animate-slide-up" style={{ animationDelay: "0.4s" }}>
+            <div
+              className="absolute -right-4 bottom-1/4 bg-card text-card-foreground rounded-2xl p-4 shadow-lg animate-slide-up"
+              style={{ animationDelay: "0.4s" }}
+            >
               <p className="text-2xl font-bold text-secondary">15K+</p>
               <p className="text-sm text-muted-foreground">Items Sold</p>
             </div>
