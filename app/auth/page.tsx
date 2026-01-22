@@ -155,19 +155,6 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
-      <header className="border-b border-border">
-        <div className="container mx-auto px-4 py-4">
-          <Link href="/" className="flex items-center gap-2 group w-fit">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary shadow-md group-hover:shadow-glow-primary transition-all duration-300">
-              <Gavel className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-bold text-foreground">
-              GO<span className="text-primary">bid</span>
-            </span>
-          </Link>
-        </div>
-      </header>
 
       {/* Main Content */}
       <main className="flex-1 flex items-center justify-center py-12 px-4">
