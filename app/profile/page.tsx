@@ -56,7 +56,11 @@ const Profile = () => {
 
   // Load profile from localStorage or use defaults
   const [profile, setProfile] = useState<ProfileData>(() => {
-    const saved = localStorage.getItem(PROFILE_STORAGE_KEY);
+    let saved;
+    if (typeof window !== "undefined") {
+      // Access localStorage here, it is safe in the browser environment
+      saved = localStorage.getItem(PROFILE_STORAGE_KEY);
+    }
     if (saved) {
       try {
         return JSON.parse(saved);

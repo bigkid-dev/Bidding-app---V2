@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { WishlistProvider } from "@/contexts/WishlistContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,9 @@ export default function RootLayout({
       >
         <div className="min-h-screen bg-background">
           <Header />
-          <main>{children}</main>
+          <WishlistProvider>
+            <main>{children}</main>
+          </WishlistProvider>
           <Footer />
         </div>
       </body>

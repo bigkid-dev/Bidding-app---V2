@@ -93,7 +93,7 @@ const Header = () => {
                 <Link href="/wallet">Wallet</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/disputes">My Disputes</Link>
+                <Link href="/dispute">My Disputes</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/admin">Admin Panel</Link>

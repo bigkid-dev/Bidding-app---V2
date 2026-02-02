@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -82,16 +83,16 @@ const teamMembers = [
     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200",
     lastActive: "2 hours ago",
   },
-  {
-    id: "5",
-    name: "David Nwosu",
-    email: "david@gobid.ng",
-    role: "Dispute Handler",
-    department: "Disputes",
-    status: "inactive",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200",
-    lastActive: "3 days ago",
-  },
+  // {
+  //   id: "5",
+  //   name: "David Nwosu",
+  //   email: "david@gobid.ng",
+  //   role: "Dispute Handler",
+  //   department: "Disputes",
+  //   status: "inactive",
+  //   avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200",
+  //   lastActive: "3 days ago",
+  // },
 ];
 
 const roles = [
