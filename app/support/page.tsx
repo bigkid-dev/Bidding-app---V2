@@ -34,6 +34,14 @@ import {
   Send,
 } from "lucide-react";
 import Link from "next/link";
+import {
+  DialogContent,
+  DialogHeader,
+  DialogDescription,
+  DialogTitle,
+  Dialog,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const faqs = [
   {
@@ -83,6 +91,18 @@ const Support = () => {
     setIsSubmitting(false);
   };
 
+  const handleCreateDispute = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    toast({
+      title: "Dispute Created",
+      description:
+        "Your dispute has been submitted. We'll review it within 24-48 hours.",
+    });
+    setIsSubmitting(false);
+  };
+
   return (
     <main className="container mx-auto px-4 py-8">
       {/* Page Header */}
@@ -96,26 +116,90 @@ const Support = () => {
       </div>
 
       {/* Quick Links */}
-      <div className="grid md:grid-cols-4 gap-4 mb-12">
-        <Link href="/disputes">
-          <Card className="p-6 text-center hover:shadow-lg transition-shadow cursor-pointer group">
-            <div className="p-3 rounded-xl bg-destructive/10 w-fit mx-auto mb-3 group-hover:scale-110 transition-transform">
-              <AlertTriangle className="h-6 w-6 text-destructive" />
-            </div>
-            <h3 className="font-semibold">Raise Dispute</h3>
-            <p className="text-sm text-muted-foreground mt-1">
-              Report an issue
-            </p>
-          </Card>
-        </Link>
+      <div className="grid md:grid-cols-2 gap-4 mb-12">
+        <Dialog>
+          <DialogTrigger asChild>
+            <Card className="p-6 text-center hover:shadow-lg transition-shadow cursor-pointer group">
+              <div className="p-3 rounded-xl bg-destructive/10 w-fit mx-auto mb-3 group-hover:scale-110 transition-transform">
+                <AlertTriangle className="h-6 w-6 text-destructive" />
+              </div>
+              <h3 className="font-semibold">Raise Dispute</h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                Report an issue
+              </p>
+            </Card>
+          </DialogTrigger>
 
-        <Card className="p-6 text-center hover:shadow-lg transition-shadow cursor-pointer group">
-          <div className="p-3 rounded-xl bg-primary/10 w-fit mx-auto mb-3 group-hover:scale-110 transition-transform">
-            <MessageCircle className="h-6 w-6 text-primary" />
-          </div>
-          <h3 className="font-semibold">Live Chat</h3>
-          <p className="text-sm text-muted-foreground mt-1">Chat with us</p>
-        </Card>
+          <DialogContent className="max-w-lg">
+            <DialogHeader>
+              <DialogTitle>Raise a Dispute</DialogTitle>
+              <DialogDescription>
+                Describe your issue and we'll help resolve it
+              </DialogDescription>
+            </DialogHeader>
+            <form onSubmit={handleCreateDispute} className="space-y-4 pt-4">
+              <div>
+                <Label>Transaction/Order ID</Label>
+                <Input
+                  placeholder="Enter order or auction ID"
+                  className="mt-1.5"
+                  required
+                />
+              </div>
+
+              <div>
+                <Label>Dispute Type</Label>
+                <Select required>
+                  <SelectTrigger className="mt-1.5">
+                    <SelectValue placeholder="Select type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="not-received">
+                      Item Not Received
+                    </SelectItem>
+                    <SelectItem value="not-as-described">
+                      Item Not as Described
+                    </SelectItem>
+                    <SelectItem value="damaged">Damaged Item</SelectItem>
+                    <SelectItem value="refund">Refund Issue</SelectItem>
+                    <SelectItem value="seller">Seller Issue</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Label>Title</Label>
+                <Input
+                  placeholder="Brief summary of the issue"
+                  className="mt-1.5"
+                  required
+                />
+              </div>
+
+              <div>
+                <Label>Description</Label>
+                <Textarea
+                  placeholder="Provide detailed information about your dispute..."
+                  className="mt-1.5 min-h-[120px]"
+                  required
+                />
+              </div>
+
+              <div>
+                <Label>Evidence (Optional)</Label>
+                <Input type="file" multiple className="mt-1.5" />
+                <p className="text-xs text-muted-foreground mt-1">
+                  Upload photos, screenshots, or documents
+                </p>
+              </div>
+
+              <Button type="submit" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit Dispute"}
+              </Button>
+            </form>
+          </DialogContent>
+        </Dialog>
 
         <Link href="/terms">
           <Card className="p-6 text-center hover:shadow-lg transition-shadow cursor-pointer group">
@@ -126,14 +210,6 @@ const Support = () => {
             <p className="text-sm text-muted-foreground mt-1">Read our terms</p>
           </Card>
         </Link>
-
-        <Card className="p-6 text-center hover:shadow-lg transition-shadow cursor-pointer group">
-          <div className="p-3 rounded-xl bg-secondary w-fit mx-auto mb-3 group-hover:scale-110 transition-transform">
-            <HelpCircle className="h-6 w-6 text-secondary-foreground" />
-          </div>
-          <h3 className="font-semibold">Help Center</h3>
-          <p className="text-sm text-muted-foreground mt-1">Browse guides</p>
-        </Card>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
